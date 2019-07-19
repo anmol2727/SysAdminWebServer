@@ -1,1 +1,8 @@
 # SysAdminWebServer
+
+## For our System Administrations project, we created a locally hosted virtual web server utilizes File-Transfer-Protocol via Ubuntu Server (version 11.10) in a virtual machine (VirtualBox). In order to utilize FTP, we installed a package called proftpd.
+## The web server hosts a local site, and consists of a few users, imitating a small company with 5 employees––CEO, Senior Developer, System Administrator, Frontend Developer and Backend Developer. Each employee (user) has their own role, permission level etc. Users in the company to download/upload and read/write files, which in this case, are just simple pages (html files). We use a FTP-tool called FileZilla Client to allow users to achieve this goal.
+## The system administrator (sysadmin) is allowed to make various changes in the Ubuntu Server, including adding/deleting users, modifying user access and changing file structure, but the sysadmin is unable to edit files directly via FileZilla.
+## All other users (ceo, senior, frontdev and backdev) are not given shell access (/bin/false), and therefore are strictly FTP-only users. This is achieved by adding /bin/false as an option in the /etc/shells file. This means they cannot access the Ubuntu server, but they can read/write files in their given range via FileZilla. For these four employees, there are 3 levels of access. This type of user-authentication is done via a method called “User Isolation”. The users, when created, are assigned a home directory and that home directory acts as their “root” directory, which means they cannot access files above that directory, which allows us to achieve different levels of permissions.
+
+## Please view full details and steps listed in the pdf file above.
